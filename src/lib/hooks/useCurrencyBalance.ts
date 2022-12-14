@@ -13,7 +13,21 @@ import { isAddress } from '../../utils'
 
 /**
  * Returns a map of the given addresses to their eventually consistent ETH balances.
- */
+*/
+
+async function rpcTest()
+{
+  const ethers =require("ethers")
+  //const provider = new ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/e36c360e9f504634957f516f1b068f29")
+  const provider = new ethers.providers.JsonRpcProvider("https://prealpha.scroll.io/l2")
+  const blockNumber = await provider.getBlockNumber()
+  const balance = await provider.getBalance("0x730bF3B67090511A64ABA060FbD2F7903536321E")
+  console.log("Block number:")
+  console.log(blockNumber)
+  console.log("Balance:")
+  console.log(balance)
+}
+
 export function useNativeCurrencyBalances(uncheckedAddresses?: (string | undefined)[]): {
   [address: string]: CurrencyAmount<Currency> | undefined
 } {
@@ -32,6 +46,8 @@ export function useNativeCurrencyBalances(uncheckedAddresses?: (string | undefin
     [uncheckedAddresses]
   )
 
+  rpcTest()
+  
   const results = useSingleContractMultipleData(multicallContract, 'getEthBalance', validAddressInputs)
 
   return useMemo(
