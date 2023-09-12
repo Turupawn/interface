@@ -3,21 +3,26 @@ import { LARGE_MEDIA_BREAKPOINT, SMALL_MOBILE_MEDIA_BREAKPOINT } from 'component
 import { Box } from 'nft/components/Box'
 import { bodySmall, subhead } from 'nft/css/common.css'
 import { X } from 'react-feather'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useHideNftPromoBanner } from 'state/user/hooks'
-import styled, { css } from 'styled-components/macro'
-import { ClickableStyle } from 'theme'
+import styled from 'styled-components/macro'
+import { ExternalLink } from 'theme/components'
 import { Z_INDEX } from 'theme/zIndex'
 
-import nftPromoImage1 from '../nftExploreBanner/nftArt1.png'
-import nftPromoImage2 from '../nftExploreBanner/nftArt2.png'
-import nftPromoImage3 from '../nftExploreBanner/nftArt3.png'
+import scrollLogo from '../../../assets/svg/scroll_logo.svg'
+// import nftPromoImage1 from '../nftExploreBanner/nftArt1.png'
+// import nftPromoImage2 from '../nftExploreBanner/nftArt2.png'
+// import nftPromoImage3 from '../nftExploreBanner/nftArt3.png'
 
-function getRandom(list: any[]) {
-  return list[Math.floor(Math.random() * list.length)]
-}
-const randomizedNftImage = getRandom([nftPromoImage1, nftPromoImage2, nftPromoImage3])
+
+const Link = styled(ExternalLink)`
+  color: ${({ theme }) => theme.accentActive};
+  stroke: ${({ theme }) => theme.accentActive};
+`
+// function getRandom(list: any[]) {
+//   return list[Math.floor(Math.random() * list.length)]
+// }
+// const randomizedNftImage = getRandom([nftPromoImage1, nftPromoImage2, nftPromoImage3])
 
 const PopupContainer = styled.div<{ show: boolean }>`
   background-color: ${({ theme }) => theme.backgroundSurface};
@@ -88,42 +93,42 @@ const StyledImageContainer = styled(Box)`
   object-fit: contain;
 `
 
-const LinkStyle = css`
-  color: ${({ theme }) => theme.accentActive};
-  stroke: ${({ theme }) => theme.accentActive};
-`
+// const LinkStyle = css`
+//   color: ${({ theme }) => theme.accentActive};
+//   stroke: ${({ theme }) => theme.accentActive};
+// `
 
-const StyledLink = styled(Link)`
-  ${ClickableStyle}
-  ${LinkStyle}
-`
+// const StyledLink = styled(Link)`
+//   ${ClickableStyle}
+//   ${LinkStyle}
+// `
 
 export default function NftExploreBanner() {
   const [hideNftPromoBanner, toggleHideNftPromoBanner] = useHideNftPromoBanner()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const navigateToNfts = () => {
-    navigate('/nfts')
-    toggleHideNftPromoBanner()
-  }
+  // const navigateToNfts = () => {
+  //   navigate('/nfts')
+  //   toggleHideNftPromoBanner()
+  // }
 
   return (
-    <PopupContainer show={!hideNftPromoBanner} onClick={navigateToNfts}>
+    <PopupContainer show={!hideNftPromoBanner}>
       <InnerContainer>
-        <StyledImageContainer as="img" src={randomizedNftImage} draggable={false} />
+        <StyledImageContainer as="img" src={scrollLogo} draggable={false} />
         <TextContainer>
           {/* <HeaderText> */}
           <div className={subhead}>
-            <Trans>Introducing NFTs on Uniswap</Trans>
+            <Trans>Scroll &#9825; Uniswap</Trans>
           </div>
           {/* </HeaderText> */}
 
           {/* <Description> */}
           <div className={bodySmall}>
-            <Trans>Buy and sell NFTs across more listings at better prices.</Trans>{' '}
-            <StyledLink to="/nfts">
-              <Trans>Explore NFTs</Trans>
-            </StyledLink>{' '}
+            <Trans>We&rsquo;re scaling Ethereum with the power of zero-knowledge proofs and open-source community.</Trans>{' '}
+            <Link href="https://scroll.io" title="Scroll.io">
+              <Trans>Learn more.</Trans>
+            </Link>{' '}
           </div>
         </TextContainer>
         {/* </Description> */}
