@@ -20,11 +20,12 @@ import ChainSelectorRow from './ChainSelectorRow'
 import { NavDropdown } from './NavDropdown'
 
 const NETWORK_SELECTOR_CHAINS = [
-  SupportedChainId.MAINNET,
-  SupportedChainId.POLYGON,
-  SupportedChainId.OPTIMISM,
-  SupportedChainId.ARBITRUM_ONE,
-  SupportedChainId.CELO,
+  SupportedChainId.SCROLL_ALPHA,
+  // SupportedChainId.MAINNET,
+  // SupportedChainId.POLYGON,
+  // SupportedChainId.OPTIMISM,
+  // SupportedChainId.ARBITRUM_ONE,
+  // SupportedChainId.CELO,
 ]
 
 interface ChainSelectorProps {
@@ -63,7 +64,8 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
     return null
   }
 
-  const isSupported = !!info
+  // const isSupported = !!info
+  const isSupported = !!info && chainId === SupportedChainId.SCROLL_ALPHA;
 
   const dropdown = (
     <NavDropdown top="56" left={leftAlign ? '0' : 'auto'} right={leftAlign ? 'auto' : '0'} ref={modalRef}>
@@ -105,7 +107,7 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
         ) : (
           <>
             <img src={info.logoUrl} alt={info.label} className={styles.Image} />
-            <Box as="span" className={subhead} display={{ sm: 'none', xxl: 'flex' }} style={{ lineHeight: '20px' }}>
+            <Box as="span" className={subhead} display={{ sm: 'none', xxl: 'flex' }} style={{ lineHeight: '20px', whiteSpace: 'nowrap' }}>
               {info.label}
             </Box>
           </>

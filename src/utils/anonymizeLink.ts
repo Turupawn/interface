@@ -8,6 +8,7 @@ const EXPLORER_HOSTNAMES: { [hostname: string]: true } = {
   'goerli-optimism.etherscan.io': true,
   'rinkeby-explorer.arbitrum.io': true,
   'arbiscan.io': true,
+  'blockscout.scroll.io': true,
 }
 
 /**

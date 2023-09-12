@@ -1,11 +1,9 @@
 import { Trans } from '@lingui/macro'
-import { useWeb3React } from '@web3-react/core'
 import Web3Status from 'components/Web3Status'
-import { chainIdToBackendName } from 'graphql/data/util'
 import { useIsNftPage } from 'hooks/useIsNftPage'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-import { UniIcon } from 'nft/components/icons'
+import { UniScrollIcon } from 'nft/components/icons'
 import { ReactNode } from 'react'
 import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -64,8 +62,8 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
 
 const PageTabs = () => {
   const { pathname } = useLocation()
-  const { chainId: connectedChainId } = useWeb3React()
-  const chainName = chainIdToBackendName(connectedChainId)
+  // const { chainId: connectedChainId } = useWeb3React()
+  // const chainName = chainIdToBackendName(connectedChainId)
 
   const isPoolActive =
     pathname.startsWith('/pool') ||
@@ -74,19 +72,19 @@ const PageTabs = () => {
     pathname.startsWith('/increase') ||
     pathname.startsWith('/find')
 
-  const isNftPage = useIsNftPage()
+  // const isNftPage = useIsNftPage()
 
   return (
     <>
       <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
         <Trans>Swap</Trans>
       </MenuItem>
-      <MenuItem href={`/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/tokens')}>
+      {/* <MenuItem href={`/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/tokens')}>
         <Trans>Tokens</Trans>
       </MenuItem>
       <MenuItem dataTestId="nft-nav" href="/nfts" isActive={isNftPage}>
         <Trans>NFTs</Trans>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
         <Trans>Pool</Trans>
       </MenuItem>
@@ -104,9 +102,9 @@ const Navbar = () => {
         <Box display="flex" height="full" flexWrap="nowrap" alignItems="center">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <UniIcon
-                width="48"
-                height="48"
+              <UniScrollIcon
+                // width="auto"
+                height="32"
                 className={styles.logo}
                 onClick={() => {
                   navigate('/')
@@ -123,7 +121,7 @@ const Navbar = () => {
             </Row>
           </Box>
           <Box className={styles.middleContainer} alignItems="flex-start">
-            <SearchBar />
+            {/* <SearchBar /> */}
           </Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">

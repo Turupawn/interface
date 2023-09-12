@@ -1,0 +1,44 @@
+{
+  "name": "Scroll Whitelist Era",
+  "timestamp": "2022-03-01T22:44:18.339Z",
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "patch": 1
+  },
+  "tokens": [
+    {
+      "logoURI": "https://assets.coingecko.com/coins/images/2518/thumb/weth.png?1628852295",
+      "chainId": 534353,
+      "address": "0xa1EA0B2354F5A344110af2b6AD68e75545009a03",
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    {
+      "name": "Scroll USD",
+      "address": "0x67aE69Fd63b4fc8809ADc224A9b82Be976039509",
+      "symbol": "USDC",
+      "decimals": 18,
+      "chainId": 534353,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    {
+      "name": "DAI Stablecoin",
+      "address": "0x4702E5AEb70BdC05B11F8d8E701ad000dc85bD44",
+      "symbol": "DAI",
+      "decimals": 18,
+      "chainId": 534353,
+      "logoURI": "https://assets.coingecko.com/coins/images/29052/thumb/fDAI_200x200.png?1676335235"
+    },
+    {
+      "name": "Uniswap Token",
+      "address": "0x0CDEA04b370C1FA4bC2032b4ef23dB3EBCbA258a",
+      "symbol": "UNI",
+      "decimals": 18,
+      "chainId": 534353,
+      "logoURI": "https://assets.coingecko.com/coins/images/12504/thumb/uniswap-uni.png?1600306604"
+    }
+  ],
+  "logoURI": "ipfs://"
+}
